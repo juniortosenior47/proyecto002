@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  jntosn_db:
+    image: postgres:16.2
+    container_name: jntosn_db
+    restart: always
+    environment:
+      POSTGRES_USER: jntosnu
+      POSTGRES_PASSWORD: jntosn123
+      POSTGRES_DB: jntosndb
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
